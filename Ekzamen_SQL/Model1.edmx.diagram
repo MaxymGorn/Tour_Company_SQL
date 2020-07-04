@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86162dc0d6e94aa192dfdf987b52d15d" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="Database1Model.Attraction" Width="1.5" PointX="4.625" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.City" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Client" Width="1.5" PointX="9.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Country" Width="1.5" PointX="9.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Dolcnost" Width="1.5" PointX="2.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.HistoryTour" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.HistoryVisitCountry" Width="1.5" PointX="12" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.InterestingTour" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.PayTour" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Sotrudnik" Width="1.5" PointX="4.625" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Tour" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Tourist" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Transport" Width="1.5" PointX="7.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Worker" Width="1.5" PointX="2.375" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.Fk_so3" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_Hv2" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_cl1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_cl2" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_Hv11" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_ss" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_Ht" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_so02" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_It" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_soo6" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_Pt" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_so5" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_soo2" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_soo4" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Fk_so1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

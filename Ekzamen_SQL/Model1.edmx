@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Database1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attractions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirthday" Type="date" Nullable="false" />
+          <Property Name="NextTourId" Type="int" Nullable="false" />
+          <Property Name="HistoryTourId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dolcnost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoryTour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoryVisitCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateVisit" Type="date" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterestingTour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TouristId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PayTour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TouristId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
+          <Property Name="TransportId" Type="int" Nullable="false" />
+          <Property Name="HistoryVisitCountryId" Type="int" Nullable="false" />
+          <Property Name="AttractionsId" Type="int" Nullable="false" />
+          <Property Name="UrlImageAttractions" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UrlImagehotel" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MaxClients" Type="int" Nullable="false" />
+          <Property Name="SotrId" Type="int" Nullable="false" />
+          <Property Name="PayTourId" Type="int" Nullable="false" />
+          <Property Name="InterestingTourId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tourist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Startwork" Type="date" Nullable="false" />
+          <Property Name="DolcnostId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="Fk_cl1">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="NextTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_cl2">
+          <End Role="HistoryTour" Type="Self.HistoryTour" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistoryTour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="HistoryTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Ht">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+          <End Role="HistoryTour" Type="Self.HistoryTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistoryTour">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Hv11">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="HistoryVisitCountry" Type="Self.HistoryVisitCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistoryVisitCountry">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Hv2">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="HistoryVisitCountry" Type="Self.HistoryVisitCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistoryVisitCountry">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_It">
+          <End Role="Tourist" Type="Self.Tourist" Multiplicity="1" />
+          <End Role="InterestingTour" Type="Self.InterestingTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tourist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterestingTour">
+              <PropertyRef Name="TouristId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Pt">
+          <End Role="Tourist" Type="Self.Tourist" Multiplicity="1" />
+          <End Role="PayTour" Type="Self.PayTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tourist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PayTour">
+              <PropertyRef Name="TouristId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_so02">
+          <End Role="HistoryVisitCountry" Type="Self.HistoryVisitCountry" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistoryVisitCountry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="HistoryVisitCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_so1">
+          <End Role="Transport" Type="Self.Transport" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="TransportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_so3">
+          <End Role="Attractions" Type="Self.Attractions" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attractions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="AttractionsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_so5">
+          <End Role="PayTour" Type="Self.PayTour" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayTour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="PayTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_soo2">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_soo4">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="SotrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_soo6">
+          <End Role="InterestingTour" Type="Self.InterestingTour" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterestingTour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="InterestingTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_ss">
+          <End Role="Dolcnost" Type="Self.Dolcnost" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolcnost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="DolcnostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Database1ModelContainer">
+          <EntitySet Name="Attractions" EntityType="Self.Attractions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dolcnost" EntityType="Self.Dolcnost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoryTour" EntityType="Self.HistoryTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoryVisitCountry" EntityType="Self.HistoryVisitCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterestingTour" EntityType="Self.InterestingTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayTour" EntityType="Self.PayTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tourist" EntityType="Self.Tourist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Fk_cl1" Association="Self.Fk_cl1">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_cl2" Association="Self.Fk_cl2">
+            <End Role="HistoryTour" EntitySet="HistoryTour" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Ht" Association="Self.Fk_Ht">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="HistoryTour" EntitySet="HistoryTour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Hv11" Association="Self.Fk_Hv11">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="HistoryVisitCountry" EntitySet="HistoryVisitCountry" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Hv2" Association="Self.Fk_Hv2">
+            <End Role="City" EntitySet="City" />
+            <End Role="HistoryVisitCountry" EntitySet="HistoryVisitCountry" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_It" Association="Self.Fk_It">
+            <End Role="Tourist" EntitySet="Tourist" />
+            <End Role="InterestingTour" EntitySet="InterestingTour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Pt" Association="Self.Fk_Pt">
+            <End Role="Tourist" EntitySet="Tourist" />
+            <End Role="PayTour" EntitySet="PayTour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_so02" Association="Self.Fk_so02">
+            <End Role="HistoryVisitCountry" EntitySet="HistoryVisitCountry" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_so1" Association="Self.Fk_so1">
+            <End Role="Transport" EntitySet="Transport" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_so3" Association="Self.Fk_so3">
+            <End Role="Attractions" EntitySet="Attractions" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_so5" Association="Self.Fk_so5">
+            <End Role="PayTour" EntitySet="PayTour" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_soo2" Association="Self.Fk_soo2">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_soo4" Association="Self.Fk_soo4">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_soo6" Association="Self.Fk_soo6">
+            <End Role="InterestingTour" EntitySet="InterestingTour" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_ss" Association="Self.Fk_ss">
+            <End Role="Dolcnost" EntitySet="Dolcnost" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attraction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tours" Relationship="Self.Fk_so3" FromRole="Attractions" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HistoryVisitCountries" Relationship="Self.Fk_Hv2" FromRole="City" ToRole="HistoryVisitCountry" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NextTourId" Type="Int32" Nullable="false" />
+          <Property Name="HistoryTourId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tour" Relationship="Self.Fk_cl1" FromRole="Clients" ToRole="Tour" />
+          <NavigationProperty Name="HistoryTour" Relationship="Self.Fk_cl2" FromRole="Clients" ToRole="HistoryTour" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HistoryVisitCountries" Relationship="Self.Fk_Hv11" FromRole="Country" ToRole="HistoryVisitCountry" />
+        </EntityType>
+        <EntityType Name="Dolcnost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Workers" Relationship="Self.Fk_ss" FromRole="Dolcnost" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="HistoryTour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.Fk_cl2" FromRole="HistoryTour" ToRole="Clients" />
+          <NavigationProperty Name="Tour" Relationship="Self.Fk_Ht" FromRole="HistoryTour" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="HistoryVisitCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateVisit" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.Fk_Hv2" FromRole="HistoryVisitCountry" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="Self.Fk_Hv11" FromRole="HistoryVisitCountry" ToRole="Country" />
+          <NavigationProperty Name="Tours" Relationship="Self.Fk_so02" FromRole="HistoryVisitCountry" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="InterestingTour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TouristId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tourist" Relationship="Self.Fk_It" FromRole="InterestingTour" ToRole="Tourist" />
+          <NavigationProperty Name="Tours" Relationship="Self.Fk_soo6" FromRole="InterestingTour" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="PayTour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TouristId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tourist" Relationship="Self.Fk_Pt" FromRole="PayTour" ToRole="Tourist" />
+          <NavigationProperty Name="Tours" Relationship="Self.Fk_so5" FromRole="PayTour" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Worker" Relationship="Self.Fk_soo2" FromRole="Sotrudnik" ToRole="Worker" />
+          <NavigationProperty Name="Tours" Relationship="Self.Fk_soo4" FromRole="Sotrudnik" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TransportId" Type="Int32" Nullable="false" />
+          <Property Name="HistoryVisitCountryId" Type="Int32" Nullable="false" />
+          <Property Name="AttractionsId" Type="Int32" Nullable="false" />
+          <Property Name="UrlImageAttractions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlImagehotel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaxClients" Type="Int32" Nullable="false" />
+          <Property Name="SotrId" Type="Int32" Nullable="false" />
+          <Property Name="PayTourId" Type="Int32" Nullable="false" />
+          <Property Name="InterestingTourId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attraction" Relationship="Self.Fk_so3" FromRole="Tour" ToRole="Attractions" />
+          <NavigationProperty Name="Clients" Relationship="Self.Fk_cl1" FromRole="Tour" ToRole="Clients" />
+          <NavigationProperty Name="HistoryTours" Relationship="Self.Fk_Ht" FromRole="Tour" ToRole="HistoryTour" />
+          <NavigationProperty Name="HistoryVisitCountry" Relationship="Self.Fk_so02" FromRole="Tour" ToRole="HistoryVisitCountry" />
+          <NavigationProperty Name="InterestingTour" Relationship="Self.Fk_soo6" FromRole="Tour" ToRole="InterestingTour" />
+          <NavigationProperty Name="PayTour" Relationship="Self.Fk_so5" FromRole="Tour" ToRole="PayTour" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.Fk_soo4" FromRole="Tour" ToRole="Sotrudnik" />
+          <NavigationProperty Name="Transport" Relationship="Self.Fk_so1" FromRole="Tour" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="Tourist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InterestingTours" Relationship="Self.Fk_It" FromRole="Tourist" ToRole="InterestingTour" />
+          <NavigationProperty Name="PayTours" Relationship="Self.Fk_Pt" FromRole="Tourist" ToRole="PayTour" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tours" Relationship="Self.Fk_so1" FromRole="Transport" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Startwork" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DolcnostId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dolcnost" Relationship="Self.Fk_ss" FromRole="Worker" ToRole="Dolcnost" />
+          <NavigationProperty Name="Sotrudniks" Relationship="Self.Fk_soo2" FromRole="Worker" ToRole="Sotrudnik" />
+        </EntityType>
+        <Association Name="Fk_so3">
+          <End Role="Attractions" Type="Self.Attraction" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attractions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="AttractionsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Hv2">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="HistoryVisitCountry" Type="Self.HistoryVisitCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistoryVisitCountry">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_cl1">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="NextTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_cl2">
+          <End Role="HistoryTour" Type="Self.HistoryTour" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistoryTour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="HistoryTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Hv11">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="HistoryVisitCountry" Type="Self.HistoryVisitCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistoryVisitCountry">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_ss">
+          <End Role="Dolcnost" Type="Self.Dolcnost" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolcnost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="DolcnostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Ht">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+          <End Role="HistoryTour" Type="Self.HistoryTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistoryTour">
+              <PropertyRef Name="TourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_so02">
+          <End Role="HistoryVisitCountry" Type="Self.HistoryVisitCountry" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistoryVisitCountry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="HistoryVisitCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_It">
+          <End Role="Tourist" Type="Self.Tourist" Multiplicity="1" />
+          <End Role="InterestingTour" Type="Self.InterestingTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tourist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterestingTour">
+              <PropertyRef Name="TouristId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_soo6">
+          <End Role="InterestingTour" Type="Self.InterestingTour" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterestingTour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="InterestingTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Pt">
+          <End Role="Tourist" Type="Self.Tourist" Multiplicity="1" />
+          <End Role="PayTour" Type="Self.PayTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tourist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PayTour">
+              <PropertyRef Name="TouristId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_so5">
+          <End Role="PayTour" Type="Self.PayTour" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayTour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="PayTourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_soo2">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sotrudnik">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_soo4">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="SotrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_so1">
+          <End Role="Transport" Type="Self.Transport" Multiplicity="1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="TransportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attractions" EntityType="Self.Attraction" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Dolcnosts" EntityType="Self.Dolcnost" />
+          <EntitySet Name="HistoryTours" EntityType="Self.HistoryTour" />
+          <EntitySet Name="HistoryVisitCountries" EntityType="Self.HistoryVisitCountry" />
+          <EntitySet Name="InterestingTours" EntityType="Self.InterestingTour" />
+          <EntitySet Name="PayTours" EntityType="Self.PayTour" />
+          <EntitySet Name="Sotrudniks" EntityType="Self.Sotrudnik" />
+          <EntitySet Name="Tours" EntityType="Self.Tour" />
+          <EntitySet Name="Tourists" EntityType="Self.Tourist" />
+          <EntitySet Name="Transports" EntityType="Self.Transport" />
+          <EntitySet Name="Workers" EntityType="Self.Worker" />
+          <AssociationSet Name="Fk_so3" Association="Self.Fk_so3">
+            <End Role="Attractions" EntitySet="Attractions" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Hv2" Association="Self.Fk_Hv2">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="HistoryVisitCountry" EntitySet="HistoryVisitCountries" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_cl1" Association="Self.Fk_cl1">
+            <End Role="Tour" EntitySet="Tours" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_cl2" Association="Self.Fk_cl2">
+            <End Role="HistoryTour" EntitySet="HistoryTours" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Hv11" Association="Self.Fk_Hv11">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="HistoryVisitCountry" EntitySet="HistoryVisitCountries" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_ss" Association="Self.Fk_ss">
+            <End Role="Dolcnost" EntitySet="Dolcnosts" />
+            <End Role="Worker" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Ht" Association="Self.Fk_Ht">
+            <End Role="Tour" EntitySet="Tours" />
+            <End Role="HistoryTour" EntitySet="HistoryTours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_so02" Association="Self.Fk_so02">
+            <End Role="HistoryVisitCountry" EntitySet="HistoryVisitCountries" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_It" Association="Self.Fk_It">
+            <End Role="Tourist" EntitySet="Tourists" />
+            <End Role="InterestingTour" EntitySet="InterestingTours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_soo6" Association="Self.Fk_soo6">
+            <End Role="InterestingTour" EntitySet="InterestingTours" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Pt" Association="Self.Fk_Pt">
+            <End Role="Tourist" EntitySet="Tourists" />
+            <End Role="PayTour" EntitySet="PayTours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_so5" Association="Self.Fk_so5">
+            <End Role="PayTour" EntitySet="PayTours" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_soo2" Association="Self.Fk_soo2">
+            <End Role="Worker" EntitySet="Workers" />
+            <End Role="Sotrudnik" EntitySet="Sotrudniks" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_soo4" Association="Self.Fk_soo4">
+            <End Role="Sotrudnik" EntitySet="Sotrudniks" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_so1" Association="Self.Fk_so1">
+            <End Role="Transport" EntitySet="Transports" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Database1ModelContainer" CdmEntityContainer="Database1Entities4">
+          <EntitySetMapping Name="Attractions">
+            <EntityTypeMapping TypeName="Database1Model.Attraction">
+              <MappingFragment StoreEntitySet="Attractions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Database1Model.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Database1Model.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
+                <ScalarProperty Name="NextTourId" ColumnName="NextTourId" />
+                <ScalarProperty Name="HistoryTourId" ColumnName="HistoryTourId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Database1Model.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dolcnosts">
+            <EntityTypeMapping TypeName="Database1Model.Dolcnost">
+              <MappingFragment StoreEntitySet="Dolcnost">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoryTours">
+            <EntityTypeMapping TypeName="Database1Model.HistoryTour">
+              <MappingFragment StoreEntitySet="HistoryTour">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TourId" ColumnName="TourId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoryVisitCountries">
+            <EntityTypeMapping TypeName="Database1Model.HistoryVisitCountry">
+              <MappingFragment StoreEntitySet="HistoryVisitCountry">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateVisit" ColumnName="DateVisit" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterestingTours">
+            <EntityTypeMapping TypeName="Database1Model.InterestingTour">
+              <MappingFragment StoreEntitySet="InterestingTour">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TouristId" ColumnName="TouristId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayTours">
+            <EntityTypeMapping TypeName="Database1Model.PayTour">
+              <MappingFragment StoreEntitySet="PayTour">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TouristId" ColumnName="TouristId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sotrudniks">
+            <EntityTypeMapping TypeName="Database1Model.Sotrudnik">
+              <MappingFragment StoreEntitySet="Sotrudnik">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours">
+            <EntityTypeMapping TypeName="Database1Model.Tour">
+              <MappingFragment StoreEntitySet="Tour">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+                <ScalarProperty Name="HistoryVisitCountryId" ColumnName="HistoryVisitCountryId" />
+                <ScalarProperty Name="AttractionsId" ColumnName="AttractionsId" />
+                <ScalarProperty Name="UrlImageAttractions" ColumnName="UrlImageAttractions" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UrlImagehotel" ColumnName="UrlImagehotel" />
+                <ScalarProperty Name="MaxClients" ColumnName="MaxClients" />
+                <ScalarProperty Name="SotrId" ColumnName="SotrId" />
+                <ScalarProperty Name="PayTourId" ColumnName="PayTourId" />
+                <ScalarProperty Name="InterestingTourId" ColumnName="InterestingTourId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tourists">
+            <EntityTypeMapping TypeName="Database1Model.Tourist">
+              <MappingFragment StoreEntitySet="Tourist">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transports">
+            <EntityTypeMapping TypeName="Database1Model.Transport">
+              <MappingFragment StoreEntitySet="Transport">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="Database1Model.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Startwork" ColumnName="Startwork" />
+                <ScalarProperty Name="DolcnostId" ColumnName="DolcnostId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
